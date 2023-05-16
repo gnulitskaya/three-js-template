@@ -1,5 +1,6 @@
 import Experience from "../Experience.js";
 import Person from "./Person.js";
+import Background from './Background.js'
 
 export default class World {
   constructor() {
@@ -11,6 +12,7 @@ export default class World {
     this.resources.on("ready", () => {
       // Setup
       this.person = new Person();
+      this.background = new Background()
     });
   }
 

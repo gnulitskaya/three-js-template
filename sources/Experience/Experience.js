@@ -7,7 +7,10 @@ import Camera from "./Camera.js";
 import Renderer from "./Renderer.js";
 import World from "./World/World.js";
 import Resources from "./Utils/Resources.js";
+import Waypoints from './Waypoints.js'
 import Stats from "./Utils/Stats.js";
+import UI from './UI/UI.js'
+import Gestures from './Utils/Gestures.js'
 
 import sources from "./sources.js";
 
@@ -28,14 +31,17 @@ export default class Experience {
     this.canvas = _canvas;
 
     /**Setup Classes */
+    this.gestures = new Gestures()
     this.debug = new Debug();
     this.sizes = new Sizes();
     this.time = new Time();
     this.scene = new THREE.Scene();
     this.resources = new Resources(sources);
     this.camera = new Camera();
+    this.waypoints = new Waypoints()
     this.renderer = new Renderer();
     this.world = new World();
+    this.ui = new UI()
     this.stats = new Stats();
 
     this.sizes.on("resize", () => this.resize());
@@ -61,6 +67,7 @@ export default class Experience {
   resize() {
     this.camera.resize();
     this.renderer.resize();
+    this.ui.resize()
   }
 
   update() {
@@ -71,6 +78,7 @@ export default class Experience {
     this.camera.update();
     this.world.update();
     this.renderer.update();
+    this.ui.update()
 
     /**Finish analyzing frame */
     this.stats.active && this.stats.afterRender();

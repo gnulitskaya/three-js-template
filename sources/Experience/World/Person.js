@@ -26,6 +26,8 @@ export default class Person {
     this.model = this.resource.scene;
     this.model.scale.set(2, 2, 2);
     this.model.position.y -= 0.2;
+    this.model.position.x = 1.5;
+    this.model.rotation.y = Math.PI * 1.1;
     this.scene.add(this.model);
   }
 
