@@ -95,10 +95,10 @@ export default class LandingPage extends EventEmitter {
                 this.waypoints.moveToWaypoint((this.sizes.portrait ? 'scroll-start-portrait' : 'scroll-start'), true, this.scrollAnimationDuration)
 
                 //Background
-                gsap.to(this.background.material.uniforms.uOffset, { value: -.75, ease: Power2.easeInOut, duration: this.scrollAnimationDuration })
+                // gsap.to(this.background.material.uniforms.uOffset, { value: -.75, ease: Power2.easeInOut, duration: this.scrollAnimationDuration })
 
                 //Logo
-                gsap.to(this.domElements.logoWhiteBackground, { y: -window.innerHeight, ease: Power2.easeInOut, duration: this.scrollAnimationDuration })
+                // gsap.to(this.domElements.logoWhiteBackground, { y: -window.innerHeight, ease: Power2.easeInOut, duration: this.scrollAnimationDuration })
 
                 //Show Scroll Icon in Scroll Container
                 gsap.delayedCall(.7, () => this.experience.ui.scrollScrollIcon.fade(true))
@@ -171,7 +171,7 @@ export default class LandingPage extends EventEmitter {
             this.waypoints.moveToWaypoint((this.sizes.portrait ? 'landing-page-portrait' : 'landing-page'), true, this.scrollAnimationDuration)
 
             //Background
-            gsap.to(this.background.material.uniforms.uOffset, { value: -2.75, duration: this.scrollAnimationDuration, ease: Power2.easeInOut })
+            // gsap.to(this.background.material.uniforms.uOffset, { value: -2.75, duration: this.scrollAnimationDuration, ease: Power2.easeInOut })
 
             //Logo
             gsap.to(this.domElements.logoWhiteBackground, { y: 0, ease: Power2.easeInOut, duration: this.scrollAnimationDuration })
@@ -192,10 +192,10 @@ export default class LandingPage extends EventEmitter {
             // this.character.face.material.map = this.character.face.textures.default
 
             //Start wireframe material switch
-            this.character.body.checkForWireframe = 'up'
-            gsap.delayedCall(this.scrollAnimationDuration, () => this.character.body.checkForWireframe = null)
+            // this.character.body.checkForWireframe = 'up'
+            // gsap.delayedCall(this.scrollAnimationDuration, () => this.character.body.checkForWireframe = null)
 
-            this.contactAnimation.resetCharacter()
+            // this.contactAnimation.resetCharacter()
 
             // this.sounds.play('waterUp')
 

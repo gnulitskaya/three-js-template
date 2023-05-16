@@ -73,7 +73,8 @@ export default class Scroll extends EventEmitter {
 
         window.addEventListener('touchmove', () => {
             //Move if scroll is vertical
-            if (!(Math.abs(this.gestures.mTouchStartY - event.changedTouches[0].clientY) < Math.abs(this.gestures.mTouchStartX - event.changedTouches[0].clientX) && this.experience.ui.work.cards.isCurrentSwipeElement)) {
+            // && this.experience.ui.work.cards.isCurrentSwipeElement
+            if (!(Math.abs(this.gestures.mTouchStartY - event.changedTouches[0].clientY) < Math.abs(this.gestures.mTouchStartX - event.changedTouches[0].clientX))) {
                 //Calc distance
                 const distance = this.gestures.mTouchStartY - event.changedTouches[0].clientY - this.previousTouchDistance
 
@@ -162,10 +163,10 @@ export default class Scroll extends EventEmitter {
 
             if (scrollPercentage >= 0) {
                 //Background Plane
-                gsap.to(this.background.material.uniforms.uOffset, { value: ((this.background.height * 1.9) * scrollPercentage) - .75, duration: duration, ease: this.parameters.scrollEase() })
+                // gsap.to(this.background.material.uniforms.uOffset, { value: ((this.background.height * 1.9) * scrollPercentage) - .75, duration: duration, ease: this.parameters.scrollEase() })
 
                 //Camera
-                gsap.to(this.camera.instance.position, { y: (this.cameraRange.bottom - this.cameraRange.top) * scrollPercentage + this.cameraRange.top, duration: duration, ease: this.parameters.scrollEase() })
+                // gsap.to(this.camera.instance.position, { y: (this.cameraRange.bottom - this.cameraRange.top) * scrollPercentage + this.cameraRange.top, duration: duration, ease: this.parameters.scrollEase() })
 
                 //Logo Background
                 gsap.to(this.domElements.logoWhiteBackground, { y: - this.contentScrollTo - window.innerHeight, duration: duration, ease: this.parameters.scrollEase() })
@@ -175,11 +176,12 @@ export default class Scroll extends EventEmitter {
 
     stopScrollOnTouchStart() {
         this.gestures.on('touch-start', () => {
-            if (!this.landingPage.isAnimating && !this.landingPage.visible && !this.experience.ui.menu.main.visible && !this.experience.ui.menu.main.isAnimating && !this.transition.isShowing) {
+            // && !this.experience.ui.menu.main.visible && !this.experience.ui.menu.main.isAnimating && !this.transition.isShowing
+            if (!this.landingPage.isAnimating && !this.landingPage.visible) {
                 gsap.killTweensOf(this.domElements.scrollContainer)
                 gsap.killTweensOf(this.domElements.logoWhiteBackground)
                 gsap.killTweensOf(this.camera.instance.position)
-                gsap.killTweensOf(this.background.material.uniforms.uOffset)
+                // gsap.killTweensOf(this.background.material.uniforms.uOffset)
 
                 this.scrollY = this.actualScroll
             }
