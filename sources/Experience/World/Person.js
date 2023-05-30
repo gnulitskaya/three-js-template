@@ -19,7 +19,7 @@ export default class Person {
 
     this.setModel();
     // this.setMaterial();
-    // this.setAnimation();
+    this.setAnimation();
   }
 
   setModel() {
@@ -53,12 +53,12 @@ export default class Person {
     this.animation.actions.idle = this.animation.mixer.clipAction(
       this.resource.animations[0]
     );
-    this.animation.actions.walking = this.animation.mixer.clipAction(
+    this.animation.actions.fly = this.animation.mixer.clipAction(
       this.resource.animations[1]
     );
-    this.animation.actions.running = this.animation.mixer.clipAction(
-      this.resource.animations[2]
-    );
+    // this.animation.actions.running = this.animation.mixer.clipAction(
+    //   this.resource.animations[2]
+    // );
 
     this.animation.actions.current = this.animation.actions.idle;
     this.animation.actions.current.play();
@@ -82,7 +82,7 @@ export default class Person {
           this.animation.play("idle");
         },
         playWalking: () => {
-          this.animation.play("walking");
+          this.animation.play("fly");
         },
         playRunning: () => {
           this.animation.play("running");
@@ -95,6 +95,6 @@ export default class Person {
   }
 
   update() {
-    // this.animation.mixer.update(this.time.delta * 0.001);
+    this.animation.mixer.update(this.time.delta * 0.001);
   }
 }

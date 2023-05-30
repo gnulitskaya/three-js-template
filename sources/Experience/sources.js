@@ -7,6 +7,6 @@ export default [
   {
     name: "person",
     type: "gltfModel",
-    path: "models/Person/person.gltf",
+    path: "models/Person/person2.gltf",
   },
 ];

@@ -13,6 +13,7 @@ export default class World {
       // Setup
       this.person = new Person();
       this.background = new Background()
+      console.log(this.person);
     });
   }
 

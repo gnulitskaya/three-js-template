@@ -29,7 +29,8 @@ export default class LandingPage extends EventEmitter {
         // this.room = this.experience.world.landingPage.room
         this.background = this.experience.world.background
         this.renderer = this.experience.renderer
-        this.character = this.experience.world.character
+        // this.character = this.experience.world.character
+        this.person = this.experience.world.person
         this.scrollIcon = this.experience.ui.scrollIcon
         // this.transiton = this.experience.ui.transition
         // this.sounds = this.experience.sounds
@@ -37,6 +38,8 @@ export default class LandingPage extends EventEmitter {
         this.waypoints = this.experience.waypoints
         // this.contactAnimation = this.experience.world.contact.animation
         // this.intervals = this.experience.world.character.intervals
+
+        console.log('per', this.person);
 
         //Hide Triggers
         this.gestures.on('scroll-down', () => this.hide())
@@ -112,6 +115,7 @@ export default class LandingPage extends EventEmitter {
 
                 // Character Animation
                 // this.character.animations.play('fallDown', .35)
+                this.person.animation.play('fly', .35)
 
                 //character fall down
                 // gsap.to(this.character.body.model.position, { y: -18.95, duration: this.scrollAnimationDuration, ease: Power2.easeInOut })
@@ -183,7 +187,7 @@ export default class LandingPage extends EventEmitter {
             // gsap.to(this.character.body.model.position, { y: -5.7, duration: this.scrollAnimationDuration, ease: Power2.easeInOut })
 
             // character animation
-            // this.character.animations.play('idle', .7)
+            this.person.animation.play('idle', .7)
 
             // Set mouse position back to initial one
             // this.experience.world.landingPage.mouse.moveToIdleStartPositon()
